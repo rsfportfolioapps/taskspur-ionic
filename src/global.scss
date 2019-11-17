@@ -1,0 +1,155 @@
+// http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "./styleguide/shared";
+
+.link {
+  @include link-variant($color-primary);
+  cursor: pointer;
+}
+
+.floating-label {
+  @include floating-label;
+}
+
+input[type=email].ts_input-email {
+  @include input-email;
+}
+
+input[type=password].ts_input-password {
+  @include input-password;
+}
+
+input[type=text].ts_input-password {
+  @include input-password;
+}
+
+.error-hint {
+  @include error-hint;
+  text-align: left;
+  position: relative;
+  top: -25px;
+}
+
+.control-invalid {
+  color: $color-error !important;
+}
+
+.text-bold {
+  font-weight: $font-bold;
+}
+
+.note-text {
+  color: $color-light-gray;
+}
+
+.fa-trash-alt {
+  color: $color-red;
+}
+
+label {
+  font-weight: 600;
+  font-size: 15px;
+  color: $color-standard;
+}
+
+/* primeng custom css */
+.ui-toast .ui-toast-message.ui-toast-message-warn {
+  background-color: $color-error !important;
+  color: $color-white !important;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-warn .ui-toast-close-icon {
+  color: $color-white !important;
+}
+
+.ui-dialog {
+  margin: 0 auto;
+  position: relative;
+
+  .ui-dialog-content {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  background-color: $bg-primary !important;
+  color: $color-white !important;
+  border: 1px solid $color-primary !important;
+
+  .pi.pi-times {
+    color: $color-white !important;
+  }
+}
+
+.ui-toast-message-content {
+  background: $bg-green !important;
+  border-radius: 4px;
+  padding: 20px;
+
+  h5.toast-title {
+    color: $color-standard;
+  }
+
+  .ui-toast-detail {
+    color: $color-white !important;
+  }
+
+  span.ui-toast-icon, a.ui-toast-close-icon {
+    color: $color-white !important;
+  }
+}
+
+.pi-exclamation-triangle {
+  color: $color-red;
+}
+
+.ui-toast .ui-toast-message.ui-toast-message-warn .ui-toast-close-icon {
+  color: $color-standard !important;
+}
+
+.ui-confirmdialog {
+  @include confirm-dialog;
+}
+
+*:focus {
+  outline: none;
+}
+
+.notification-popover {
+
+  .popover-content {
+    top: 40px !important;
+    right: 113px !important;
+    left: auto !important;
+  }
+
+}
+
+
+@media (max-width: 360px) {
+ 
+  .notification-popover {
+    .popover-content {
+      left: 13px !important;
+    }
+  }
+
+}
+
+@media (max-width: 320px) {
+  .ui-dialog {
+    width: 300px !important;
+    max-width: 300px !important;
+  }
+}

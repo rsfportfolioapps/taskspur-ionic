@@ -1,0 +1,50 @@
+@import '../../../../styleguide/shared';
+
+:host {
+  ion-grid {
+    margin: 0;
+    padding: 0;
+  }
+
+  ion-col {
+    font-size: 14px;
+    margin-top: 0;
+    padding: 0;
+
+    .fa-angle-right {
+      margin: 0 3px;
+      color: $color-light-gray;
+    }
+
+    a,
+    span {
+      color: $color-light-gray;
+    }
+  }
+
+  ion-col+ion-col::before {
+    display: inline-block;
+    color: $color-light-gray;
+    padding: 0 5px;
+    color: $color-light-gray;
+    font-size: 12px;
+  }
+
+  .active-link,
+  .current-link {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .fa-angle-right {
+    color: $color-light-gray;
+    padding: 0 2px;
+    position: relative;
+    top: 0.5px;
+    font-size: 12px;
+  }
+
+  .date-time::before {
+    content: "" !important;
+  }
+}

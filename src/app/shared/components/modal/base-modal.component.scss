@@ -1,0 +1,23 @@
+:host ::ng-deep .ui-dialog-content {
+  height: 100%;
+}
+
+:host ::ng-deep .ui-dialog {
+  margin: 0 10px;
+  height: 100%;
+  width: 320px !important;
+  max-width: 320px !important;
+
+  .ui-dialog-content {
+    width: 100%;
+  }
+}
+
+:host ::ng-deep p-header {
+  i.fa-times {
+    float: right;
+    font-size: 19px;
+    padding-right: 2px;
+    padding-top: 2px;
+  }
+}

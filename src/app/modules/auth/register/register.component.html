@@ -1,0 +1,151 @@
+
+<ion-content>
+  <form novalidate [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2>Create Account</h2>
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <div class="floating-label group">
+          <input class="ts_input-email" #email id="email" type="email" formControlName="email" name="email" autocomplete="off" tabindex="1"
+            (keyup)="checkEmail()"
+            required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
+          <i *ngIf="registerForm.get('email').valid" class="fas fa-check icon-email-success"></i>
+          <i *ngIf="!registerForm.get('email').valid && registerForm.get('email').dirty" (click)="onClear()" class="fas fa-times icon-email-error"></i>
+        </div>
+        <div *ngIf="isEmailTaken" class="error-hint">
+          * Email {{ registerForm.get('email').value }} is already taken.
+        </div>
+
+        <div class="floating-label group">
+          <input class="ts_input-password" #pwd formControlName="password" name="password" type="password" autocomplete="off"
+            tabindex="2" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+          <i (click)="showPassword(pwd)" class="fas fa-eye icon-password-view"></i>
+        </div>
+        <div *ngIf="!registerForm.get('password').valid && registerForm.get('password').dirty && registerForm.get('password').value != ''" class="error-hint">
+            * Password must have at least one non letter or digit character and minimum of 8 characters.
+        </div>
+
+        <div class="floating-label group mb-0">
+          <input class="ts_input-password" valCompare="password" #rpwd formControlName="repeatPassword" name="repeatPassword" type="password" autocomplete="off"
+            tabindex="2" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label [ngClass]="{'control-invalid': !registerForm.get('repeatPassword').valid && registerForm.get('repeatPassword').dirty }">Repeat Password</label>
+          <i (click)="showPassword(pwd)" class="fas fa-eye icon-password-view"></i>
+        </div>
+      </ion-list>
+
+      <ion-list>
+        <div class="terms-privacy">
+          <ion-checkbox formControlName="termsPolicy" checked="false" ></ion-checkbox>
+          <ion-label class="item-text-wrap" (click)="showTermsPolicy()">Terms and Conditions | Privacy</ion-label>
+        </div>
+      </ion-list>
+
+      <ion-row>
+        <ion-col>
+          <button [disabled]="!registerForm.valid || isSubmitting" class="btn btn-signin">
+          <i *ngIf="isSubmitting" class="fas fa-spinner fa-pulse"></i> SIGN UP</button> 
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div class="sign-up-section">
+    <button class="btn button-transparent" routerLink='/login' >SIGN IN</button> 
+  </div>
+</ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-header>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate [formGroup]="registerForm" (ngSubmit)="register()">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <div class="ari-logo"></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+            <h3 class="header-title"><span class="lpa_blue-text">Hey There!</span> 
+              Let’s get started with your account</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating" color="primary">Email Address</ion-label>
+              <ion-input #email name="text" formControlName="email" type="email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating" color="primary">Password</ion-label>
+              <ion-input #pwd name="password" formControlName="password" type="password" required>
+              </ion-input>
+              <i (click)="showPassword(pwd)" class="fas fa-eye lpa_icon-password-view"></i>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating" color="primary">Repeat Password</ion-label>
+              <ion-input #rpwd valCompare="password" name="repeatPassword" formControlName="repeatPassword" type="password" required>
+              </ion-input>
+              <i (click)="showPassword(rpwd)" class="fas fa-eye lpa_icon-password-view"></i>
+            </ion-item>
+
+            <ion-item>
+              <ion-checkbox formControlName="termsPolicy" checked="false" ></ion-checkbox>
+              <ion-label class="item-text-wrap" (click)="showTermsPolicy()">I have read and accept the Terms and Conditions And Privacy Policy</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" [disabled]="!registerForm.valid || isSubmitting" expand="block" class="lpa_button-native">
+              <i *ngIf="isSubmitting" class="fas fa-spinner fa-pulse"></i> Sign Up</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <p class="login-text">Already have an account? <a href="javascript:void(0)" class="login" routerLink="/login">Login</a></p>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content> -->

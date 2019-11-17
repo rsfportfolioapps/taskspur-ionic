@@ -1,0 +1,8 @@
+<ion-list class="sidebar">
+  <ion-item class="header-item">Menu <i class="fas fa-times" (click)="toggleSidebar()"></i></ion-item>
+  <ion-menu-toggle auto-hide="false" *ngFor="let menu of menus">
+    <ion-item (click)="gotoRoute($event, menu)" class="router-link-item" [ngClass]="{'first-item': menu.text == 'Dashboard'}">
+      {{ menu.text }}
+    </ion-item>
+  </ion-menu-toggle>
+</ion-list>

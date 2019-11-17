@@ -1,0 +1,12 @@
+<ion-app>
+  <ion-split-pane >
+    <ion-menu-button></ion-menu-button>
+    <ion-menu menuId="sidebar">
+      <ion-content class="bgblue">
+        <app-sidebar (showSidebarEmitter)="closeSidebar()"></app-sidebar>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

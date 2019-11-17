@@ -1,0 +1,86 @@
+@import '../../../../../styleguide/shared';
+
+
+ion-searchbar {
+  padding: 0;
+  height: 45px;
+}
+
+.row {
+  margin: 10px 15px;
+}
+
+.board-header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  .row:first-child {
+    border-bottom: thin $border-line-color solid;
+    padding-bottom: 10px;
+  }
+}
+
+.sc-container {
+  padding: 15px 0 15px 15px;
+
+  img:first-child {
+    margin-right: 15px;
+    margin-top: 10px;
+  }
+
+  img:nth-child(2) {
+    margin-top: 10px;
+  }
+}
+
+.btn-create-mobile {
+  @include btn-gradient-blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.btn-new-board {
+  @include btn-gradient-blue;
+}
+
+.action-container {
+  padding-left: 0;
+  padding-right: 0;
+  height: 40px;
+}
+
+.content-head.col-6 {
+  padding-right: 0;
+  padding-left: 2px;
+}
+
+.board-content {
+  margin: 0 5px;
+
+}
+
+:host ::ng-deep {
+
+  // *** android css ***
+  .searchbar-input.sc-ion-searchbar-md {
+    border-radius: 20px;
+    box-shadow: none;
+    border: thin $border-line-color solid;
+    padding-left: 40px;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+
+    &:focus~ion-icon {
+      color: $color-primary;
+    }
+  }
+
+  // *** ios css ***
+  .searchbar-input-container.sc-ion-searchbar-ios {
+    height: 45px;
+  }
+}

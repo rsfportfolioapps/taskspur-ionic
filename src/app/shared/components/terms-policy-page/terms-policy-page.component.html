@@ -1,0 +1,30 @@
+
+
+<ion-toolbar position="top">
+<div padding>
+  <ion-segment [(ngModel)]="options">
+    <ion-segment-button value="0"> Terms and Conditions </ion-segment-button>
+    <ion-segment-button value="1"> Privacy and Policy </ion-segment-button>
+  </ion-segment>
+</div>
+</ion-toolbar>
+
+<ion-content>
+  <div [ngSwitch]="options">
+    <ion-list *ngSwitchCase="'0'">
+      <ion-item><app-terms-condition></app-terms-condition></ion-item>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'1'">
+      <ion-item><app-privacy-policy></app-privacy-policy></ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button type="button" color="light" (click)="modalService.closeModal()"><i class="fas fa-times"></i> Decline</ion-button>
+    <ion-button type="button" color="success" float-right (click)="modalService.okAction()" ><i class="fas fa-check"></i> I Agree</ion-button>
+  </ion-toolbar>
+</ion-footer>
+

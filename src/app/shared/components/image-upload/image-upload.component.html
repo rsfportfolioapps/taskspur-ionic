@@ -1,0 +1,42 @@
+<div *ngIf="parentForm" [formGroup]="parentForm" class="row lpa_upload-container"
+  (dragover)="isDropping = true"
+  (dragleave)="isDropping = false">
+    <div class="col-12 upload-container">
+      <div *ngIf="(!data.image && !imageDisplayUrl) || isDropping" class="row lpa_upload-image-container">
+        <div>
+          <i class="far fa-image fa-2x"></i>
+          <p class="caption">Upload your image</p>
+        </div>
+      </div>
+
+      <div *ngIf="(data.image || imageDisplayUrl) && !isDropping" class="img-container">
+        <img *ngIf="data.image || imageDisplayUrl" [@enterAnimation] [src]="data.image ? data.image : imageDisplayUrl" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+      </div> 
+    </div>
+
+    <div class="col-12 lpa_upload-btn">
+      <input
+        #profileImage
+        type="file"
+        id="image"
+        formControlName="image"
+        (change)="fileChangeListener($event)"
+        accept="image/png,image/jpg,image/jpeg"
+      />
+    </div>
+  </div>
+  
+  <p-dialog
+    [width]="300"
+    header="Image Cropper"
+    [(visible)]="showCroppingDialog"
+    positionTop="20"
+    >
+    <img-cropper #cropper [image]="data" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
+    <p-footer>
+      <ion-button type="button" expand="block" (click)="showCroppingDialog = false">Done</ion-button>
+    </p-footer>
+  </p-dialog>
+  
+  
+  

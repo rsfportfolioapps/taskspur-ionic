@@ -1,0 +1,77 @@
+@import '../../../../styleguide/shared';
+
+:host {
+  ion-grid {
+    h2 {
+      color: $color-primary;
+      
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  ion-list {
+    margin: 10px 45px;
+  }
+
+  ion-col {
+    text-align: center;
+
+    .btn-login {
+      @include btn-gradient-blue;
+
+      width: 270px;
+      margin: 0 auto;
+    }
+  }
+
+  .button-transparent {
+    @include btn-transparent;
+    
+    width:100%;
+  }
+
+  .forgot-password {
+    font-size: 14px;
+  }
+
+  .social-container {
+    text-align: center;
+    max-width: 280px;
+    margin: 0 auto;
+
+    .social-icons {
+      text-align: center;
+      margin: 0 0 10px;
+    }
+
+    fieldset {
+      border-top: 1px solid #ccc;
+    }
+
+    legend {
+      font-size: 16px;
+      text-align: center;
+      width: auto;
+      border-bottom: none;
+      position: relative;
+      top: -2px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      h6 {
+        color:#888;
+      }
+    }
+  }
+
+  .sign-up-section {
+    background-image: url('/assets/images/mobile_bg_signIn.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 125px;
+    width: 100%;
+    padding: 45px;
+  }
+}

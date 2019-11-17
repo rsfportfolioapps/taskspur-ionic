@@ -1,0 +1,59 @@
+@import '../../../../styleguide/shared';
+
+.dropdown-container {
+  height: 30px;
+}
+
+:host ::ng-deep .ui-dropdown {
+  border: none;
+  border-bottom: 1px solid #a6a6a6;
+
+  .ui-dropdown-trigger {
+    color: $color-black;
+  }
+}
+
+:host ::ng-deep p-dropdown {
+  .ui-placeholder {
+    color: $color-black;
+  }
+
+  .ui-dropdown-label {
+    position: relative;
+    left: -6px;
+    font-weight: bold;
+
+    span {
+      margin-left: 0 !important;
+    }
+  }
+
+  .ui-placeholder {
+    font-weight: normal;
+    color: $color-black;
+  }
+}
+
+:host ::ng-deep p-dropdown~label {
+  display: none;
+}
+
+:host ::ng-deep .ui-corner-all {
+  border-radius: 0;
+}
+
+:host ::ng-deep p-dropdown.ui-inputwrapper-filled~label {
+  display: block;
+  position: relative;
+  top: -48px;
+  font-size: 12px;
+  color: $color-primary;
+  font-weight: bold;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+:host ::ng-deep .ui-inputtext {
+  font-size: 15px;
+}

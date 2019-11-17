@@ -1,0 +1,75 @@
+@import '../../../../styleguide/shared';
+
+:host {
+
+
+  ion-item:not(:last-child) {
+    border-bottom: 1px solid $color-lighter-gray !important ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .list-md {
+    margin: 0;
+    padding: 0;
+  }
+
+ 
+  .list-ios {
+    margin: 6px;
+  }
+
+  a {
+    padding: 5px 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #666666;
+
+    span {
+      display: block;
+      margin-left: 40px;
+      
+    }
+    
+    .action-label {
+      font-size: 10px;
+      color: $color-lighter-gray;
+    }
+  }
+
+  i {
+    font-size: 14px;
+    position: absolute;
+    border-radius: 50%;
+    color: $color-white;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 8px;
+    text-shadow: 0.5px 0.5px 0.5px $color-light-gray;
+  }
+
+  .all-notification {
+    font-size: 12px !important;
+    padding: 10px 0;
+    color: #8a8989cc;
+  }
+
+  .card-blue {
+    background: $bg-primary;
+  }
+
+  .expenses-yellow {
+    background: $bg-yellow;
+  }
+
+  .tickets-green {
+    background: $bg-green;
+  }
+
+
+  
+}
+
+
+  

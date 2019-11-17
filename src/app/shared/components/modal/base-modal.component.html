@@ -1,0 +1,15 @@
+<p-dialog 
+  [header]="headerText" 
+  [(visible)]="showModal" 
+  [modal]="true" 
+  [maximizable]="false" 
+  [baseZIndex]="10000"
+  [positionTop]="positionTop"
+  [closable]="true"
+  [style]="style"
+  [minY]="1000"
+  position="top"
+  appendTo="body"
+ >
+  <ng-content select=".body"></ng-content>
+</p-dialog>

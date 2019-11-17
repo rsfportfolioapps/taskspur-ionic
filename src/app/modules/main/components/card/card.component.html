@@ -1,0 +1,41 @@
+<div *ngFor="let card of cards" class="my-card">
+  <div class="row mc-header mb-2 pl-1">
+    <div class="col-10 p-0">
+      <h6>{{ card.name }}</h6>
+    </div>
+    <div class="col-2 pr-1 text-right"><i class="fas fa-ellipsis-v"></i></div>
+  </div>
+
+  <div class="mc-body pl-1">
+    <p class="mc-body-text mb-2">{{ card.details }}</p>
+    <p class="mc-body-date">Due Date: {{ card.expectedCompletion | date: 'MM/dd/yyyy' }}</p>
+    <p class="mc-body-due-date">*Passed Due Date</p>
+    <div class="mc-body-buttons">
+      <button *ngIf="card.point" type="button" class="btn-{{ cardPoints[card.point].value | lowercase }} active">
+        {{ cardPoints[card.point].value }}</button>
+
+      <button *ngIf="card.important" type="button" class="btn-challenging">Important</button>
+      <button *ngIf="card.urgent" type="button" class="btn-challenging">Urgent</button>
+    </div>
+  </div>
+
+  <div class="mc-footer p-2">
+    <div class="row m-0">
+      <div class="col-6 p-0">
+        <img *ngFor="let i of [1, 2, 3]" class="mc-f-img" src="/assets/images/sample/m{{i}}.png" />
+      </div>
+      <div class="col-6 p-0">
+        <div class="row p-2 pr-4 ic-container">
+          <div class="col-3 m-auto ic"><span class="badge-red">3</span>
+            <img src="/assets/svg/icon-time.svg" />
+          </div>
+          <div class="col-3 m-auto ic"><span class="badge-warning">7</span>
+            <img src="/assets/svg/icon-attached.svg" />
+          </div>
+          <div class="col-3 m-auto ic"><span class="badge-info">1</span>
+            <img src="/assets/svg/icon-comments.svg" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

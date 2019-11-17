@@ -1,0 +1,32 @@
+<ion-card>
+  <ion-card-content>
+    <div *ngIf="board" class="row m-0">
+      <div class="col-3">
+        <div *ngIf="myChart">
+          <canvas #myChart width="120" height="120px"></canvas>
+          <span class="fill-text">80%</span>
+        </div>
+      </div>
+      <div class="col p-0 pl-2">
+        <div class="row m-0">
+          <div class="col-12 p-0 pb-2 bc-title" [ngClass]="getPadding(board.name)">
+            <h3>{{ board.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row bc-footer">
+      <div (click)="onDisplayMembers()" class="col-6 bc-pp-icon-container">
+        <div class="bc-pp-icon"></div>
+        <div class="bc-pp-icon"></div>
+        <div class="bc-pp-icon"></div>
+        <div class="bc-pp-icon">+3</div>
+      </div>
+      <div class="col bc-action-icon">
+        <img src="/assets/svg/icon-dashboard-info.svg" />
+        <img routerLink="/edit-board/{{board.id}}" src="/assets/svg/icon-edit.svg" />
+        <img (click)="onDelete(board.id)" src="/assets/svg/icon-remove.svg" />
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

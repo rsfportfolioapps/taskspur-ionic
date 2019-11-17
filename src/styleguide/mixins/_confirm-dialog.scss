@@ -1,0 +1,39 @@
+@mixin confirm-dialog {
+  left: 45% !important;
+
+  &.ui-dialog .ui-dialog-titlebar {
+    display: none !important;
+  }
+
+  &.ui-dialog .ui-dialog-content {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    text-align: center;
+  }
+
+  &.ui-dialog .ui-dialog-footer {
+    border: 1px solid #fff !important;
+
+    button {
+      max-width: 135px;
+      display: inline-block;
+
+      &:first-child {
+        @include btn-gradient-blue;
+      }
+
+      &:nth-child(2) {
+        @include btn-default;
+      }
+
+      span:first-child {
+        display: none;
+      }
+
+      span.ui-button-text {
+        padding: 0;
+      }
+    }
+  }
+}

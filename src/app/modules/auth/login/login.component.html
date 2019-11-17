@@ -1,0 +1,65 @@
+<ion-content>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2>Sign in to TaskSpur</h2>
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <div class="floating-label group">
+          <input class="ts_input-email" #username id="username" type="email" formControlName="username" name="username" autocomplete="off" tabindex="1"
+            required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
+          <i *ngIf="loginForm.get('username').valid" class="fas fa-check icon-email-success"></i>
+          <i *ngIf="!loginForm.get('username').valid && loginForm.get('username').dirty" (click)="onClear()" class="fas fa-times icon-email-error"></i>
+        </div>
+
+        <div class="floating-label group mb-0">
+          <input class="ts_input-password" #pwd formControlName="password" name="password" type="password" autocomplete="off"
+            tabindex="2" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+          <i (click)="showPassword(pwd)" class="fas fa-eye icon-password-view"></i>
+        </div>
+      </ion-list>
+
+      <ion-row>
+        <ion-col text-center>
+          <p class="forgot-password"><a href="javascript:void(0)" routerLink="/forgot-password">Forgot password?</a></p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <button [disabled]="!loginForm.valid || isSubmitting" class="btn btn-login"> 
+            <i *ngIf="isSubmitting" class="fas fa-spinner fa-pulse"></i> SIGN IN</button> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="social-container">
+            <fieldset>
+              <legend><h6>OR LOGIN WITH</h6></legend>
+            </fieldset>
+            <div class="social-icons">
+              <app-facebook-login></app-facebook-login>
+              <app-google-login></app-google-login>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div class="sign-up-section">
+    <button class="btn button-transparent" routerLink='/register' >SIGN UP</button> 
+  </div>
+</ion-footer>

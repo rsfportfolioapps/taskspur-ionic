@@ -1,0 +1,79 @@
+<app-nav-header></app-nav-header>
+
+<ion-content>
+  <div class="card-container">
+    <div class="row">
+      <div class="col-8">
+        <h4 class="mb-0">Cards</h4>
+        <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+      </div>
+      <div class="col-4">
+        <div class="text-right sort-container">
+          <img src="/assets/icons/active-grid-view.png">
+          <img src="/assets/icons/active-list-view.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content p-0">
+      <div class="cc-mobile-container mt-3 mb-2">
+        <div class="row btn-action-container m-0">
+          <div class="col pl-1 pr-0">
+            <app-dropdown-multiselect-filter 
+              class="dropdown-multiselect-filter" 
+              [items]="boardFilters"
+              [selectedItemsLabel]="selectedItemsLabel" 
+              [filterPlaceHolder]="filterPlaceHolder" 
+              [defaultLabel]="defaultLabel"
+              (selectedItemEmitted)="onFilterCardByBoards($event)"
+              >
+            </app-dropdown-multiselect-filter>
+          </div>
+          <div class="col-4 p-0 pr-1">
+            <button type="button" class="btn btn-search"><i class="fas fa-search"></i></button>
+            <button type="button" routerLink="/new-card" class="btn btn-create"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row m-0">
+        <div *ngFor="let status of cardStatus" class="col-lg-3 p-1 card-accordion">
+          <div class="card-row">
+            <div class="card">
+              <div class="card-header ch-1" [ngClass]="{'collapsed': collapsed}" [attr.aria-expanded]="collapsed"
+              data-toggle="collapse" [attr.data-target]="'#collapse' + status.value" [attr.aria-controls]="'collapse'+ status.value">
+              <span>{{status.label}}</span>
+              <span *ngIf="cards" class="card-count float-right">{{ getStatusCards(status.value).length }}</span>
+            </div>
+            <div class="card-body collapse" [ngClass]="{'show': collapsed}" id="collapse{{status.value}}">
+              <app-card 
+                *ngIf="cards"
+                (click)="onDisplayNewCard()" 
+                [cards]="getStatusByCards(initialCards, status.value)"
+              ></app-card>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- board dialog -->
+  <!-- <app-base-modal class="new-board-dialog" [showModal]="newBoardDisplay" [headerText]="'Create Board'" (closeModal)="newBoardDisplay = $event"
+    [displayClose]="false" [btnNewText]="'Create Board'">
+    <ng-container class="body">
+      <app-board-detail></app-board-detail>
+    </ng-container>
+  </app-base-modal> -->
+
+  <!-- card dialog -->
+  <!-- <app-base-modal class="new-card-dialog" [showModal]="newCardDisplay" [headerText]="'Create Card'" (closeModal)="newCardDisplay = $event"
+    [displayClose]="false" [btnNewText]="'Create Card'" [displayFooter]="false" [style]="{'position':'absolute'}">
+    <ng-container class="body">
+      <app-card-detail></app-card-detail>
+    </ng-container>
+  </app-base-modal> -->
+
+</ion-content>

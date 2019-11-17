@@ -1,0 +1,48 @@
+<div class="board-detail-container">
+  <form novalidate [formGroup]="boardForm" (ngSubmit)="onSubmit()">
+    <div class="m-4">
+      <div class="floating-label group bds">
+        <input #name type="text" id="name" formControlName="name" name="name" class="name" autocomplete="off" tabindex="1"
+          required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Board Name</label>
+      </div>
+
+      <div class="form-group bds">
+        <label for="boardDescription">Description</label>
+        <!-- <app-quill-editor #editor [parentForm]="boardForm" [controlName]="'details'"></app-quill-editor> -->
+        <textarea class="form-control" rows="4" formControlName="details"></textarea>
+      </div>
+    </div>
+
+    <div class="row m-0">
+      <app-attachment (onChange)="handleImageChange($event)" [parentForm]="attachmentForm"></app-attachment>
+    </div>
+
+    <div class="m-4">
+      <div class="form-group bds">
+        <label class="font-weight-bold" for="priority">Priority</label>
+
+        <div class="bmp-container m-auto">
+          <div class="row">
+            <div class="col-2">
+              <p-inputSwitch formControlName="important"></p-inputSwitch>
+            </div>
+            <div class="col"><label class="d-inline float-left">Important</label></div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <p-inputSwitch formControlName="urgent"></p-inputSwitch>
+            </div>
+            <div class="col"><label class="d-inline float-left">Urgent</label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-right p-3">
+      <button type="button" routerLink="/boards" class="btn btn-cancel">Cancel</button>
+      <button type="submit" [disabled]="!boardForm.valid" class="btn btn-create">{{ aeMode === 1 ? 'Create' : 'Update' }} Board</button>
+    </div>
+  </form>
+</div>

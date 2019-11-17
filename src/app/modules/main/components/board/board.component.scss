@@ -1,0 +1,129 @@
+@import '../../../../../styleguide/shared';
+
+ion-card-content {
+  padding: 13px 0 0 0 !important;
+}
+
+ion-card {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 20px 10px !important;
+}
+
+canvas {
+  height: 70px !important;
+  width: 70px !important;
+}
+
+.o-l-p {
+  padding: 27px 5px !important;
+}
+
+.r-l-p {
+  padding: 17px 5px !important;
+}
+
+.m-l-p {
+  padding: 5px !important;
+}
+
+.fill-text {
+  position: relative;
+  top: -40px;
+  font-size: 14px;
+  left: 25px;
+  font-weight: 600;
+  color: #FF6060;
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 16px;
+  color: $color-primary;
+  margin-bottom: 0;
+}
+
+.bc-icon {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #F4F8FD;
+  padding: 18px;
+
+}
+
+.bc-footer {
+  background: #F4F8FD;
+  height: 45px;
+  margin: 0;
+  padding: 3px;
+
+  .bc-pp-icon-container {
+    padding: 8px 0 8px 15px;
+
+    .bc-pp-icon {
+      height: 26px;
+      width: 26px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px $color-white solid;
+
+      &:nth-child(1) {
+        background-image: url('/assets/images/sample/pp1.jpg');
+        margin-right: 10px;
+        border: 2px $color-primary solid;
+        z-index: 101;
+      }
+
+      &:nth-child(2) {
+        background-image: url('/assets/images/sample/pp2.jpg');
+        z-index: 100;
+        position: relative;
+      }
+
+      &:nth-child(3) {
+        z-index: 99;
+        position: relative;
+        left: -10px;
+        background-image: url('/assets/images/sample/pp3.jpg');
+      }
+
+      &:last-child {
+        border: none;
+        position: relative;
+        top: -7px;
+        left: -5px;
+      }
+    }
+  }
+
+  .bc-action-icon {
+    padding: 0 5px 0 0;
+    text-align: right;
+
+    img {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      margin: 11px 7px;
+    }
+  }
+}
+
+.btn-confirm {
+  @include btn-gradient-blue;
+
+  text-shadow: $text-shadow;
+}
+
+.btn-reject {
+  @include btn-default;
+
+  text-shadow: $text-shadow;
+}

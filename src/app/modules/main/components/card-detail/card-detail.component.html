@@ -1,0 +1,119 @@
+<form novalidate [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <div class="col-12 pt-3">
+    <div class="floating-label group">
+      <input type="text" id="name" name="name" formControlName="name" autocomplete="off" tabindex="0" autofocus
+        required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Card Name</label>
+    </div>
+
+    <div class="col-12 p-0">
+      <app-dropdown 
+        [parentForm]="cardForm" 
+        [items]="formattedBoards" 
+        tabindex="1" 
+        [label]="'Board'" 
+        [placeholder]="'Board'"
+        [controlName]="'boardId'"
+      ></app-dropdown>
+    </div>
+
+    <div class="col-12 p-0">
+      <div class="floating-label group">
+        <app-datepicker [label]="'Due Date'" [parentForm]="cardForm" tabindex="2" [controlName]="'expectedCompletion'">
+        </app-datepicker>
+      </div>
+    </div>
+
+    <!-- <div class="col-12 p-0">
+      <app-dropdown [parentForm]="cardForm" [items]="status" [label]="'Status'" [placeholder]="'Status'"
+        [controlName]="'status'"></app-dropdown>
+    </div> -->
+
+    <div class="col-12 p-0 mb-4">
+      <div class="form-group">
+        <label class="font-weight-bold" for="details">Description</label>
+        <textarea class="form-control" rows="5" formControlName="details" tabindex="3" name="details" autofocus></textarea>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3 p-0">
+      <label class="text-bold">Member(s)</label>
+    </div>
+
+    <div class="row cdm-container m-auto">
+      <div class="col-12 mr-1">
+        <div class="row cdm-row">
+          <div class="col-3 cdm-img">
+            <img src="/assets/images/sample/m1.png" />
+          </div>
+          <div class="col cdm-name">Jimmy Chong</div>
+          <div class="col-2 cdm-action-icon">
+            <img src="/assets/svg/icon-swap.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mr-1">
+        <div class="row cdm-row">
+          <div class="col-3 cdm-img">
+            <img src="/assets/images/sample/m2.png" />
+          </div>
+          <div class="col cdm-name">Vanessa Lin</div>
+          <div class="col-2 cdm-action-icon">
+            <img src="/assets/svg/icon-remove.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mr-1">
+        <div class="row cdm-row">
+          <div class="col-3 cdm-img">
+            <img src="/assets/images/sample/m3.png" />
+          </div>
+          <div class="col cdm-name">James Parker</div>
+          <div class="col-2 cdm-action-icon">
+            <img src="/assets/svg/icon-remove.svg" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 mt-3 p-0">
+      <label class="text-bold">Priority</label>
+
+      <div class="cmp-container m-auto">
+        <div class="row">
+          <div class="col-3 input-switch-red">
+            <p-inputSwitch tabindex="4" formControlName="important"></p-inputSwitch>
+          </div>
+          <div class="col pl-0"><label class="d-inline float-left">Important</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3 input-switch-red">
+            <p-inputSwitch tabindex="5" formControlName="urgent"></p-inputSwitch>
+          </div>
+          <div class="col pl-0"><label class="d-inline float-left">Urgent</label></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3 p-0">
+      <label class="text-bold">Level of Difficulty</label>
+      <div class="cmp-container m-auto">
+        <app-radio-of-difficulty [parentForm]="cardForm" [controlName]="'point'" (pointValueEmitter)="handlePointValue($event)" ></app-radio-of-difficulty>
+      </div>
+    </div>
+  </div>
+
+  <div class="row m-0">
+    <app-attachment (attachmentsEmitter)="handleAttachments($event)"></app-attachment>
+  </div>
+
+  <div class="row text-right p-3">
+    <a href="javacript:void(0)" routerLink="/cards" class="btn btn-cancel">Cancel</a>
+    <button type="submit" [disabled]="!cardForm.valid" tabindex="-1" class="btn btn-create">{{ aeMode === 1 ? 'Create' : 'Update' }} Card</button>
+  </div>
+</form>

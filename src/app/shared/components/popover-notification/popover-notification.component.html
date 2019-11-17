@@ -1,0 +1,15 @@
+<ion-list lines="none">
+  <ion-item style="border: none;" *ngFor="let link of notificationDropdownMenuLink" (click)="onRoute(notification.route)">
+    <a href="javascript:void(0)" (click)="gotoRoute(link)">
+      <i class="{{link.icon}}  {{link.bgColor}}"></i>
+      <span>{{link.text}}</span>
+      <span class="action-label">{{link.action}}</span>
+    </a>
+  </ion-item>
+
+  <ion-item style="border: none;" >
+    <a href="javascript:void(0)">
+      <span class="all-notification">SEE ALL NOTIFICATIONS</span>
+    </a>
+  </ion-item>
+</ion-list>

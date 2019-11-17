@@ -1,0 +1,21 @@
+@import '../../../../../styleguide/shared';
+
+:host {
+  ion-card-header {
+    padding:10px;    
+    @include card-header-title;
+  }
+
+  ion-label {
+    white-space: normal !important;
+    color: $color-gray !important;
+    font-size: 15px !important;
+    z-index: 9999 !important;
+  }
+
+  app-breadcrumbs {
+      width: 100%;
+  }
+
+}
+

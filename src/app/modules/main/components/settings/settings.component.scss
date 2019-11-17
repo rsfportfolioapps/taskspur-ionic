@@ -1,0 +1,33 @@
+@import '../../../../../styleguide/shared';
+
+:host {
+  ion-card-header {
+    padding: 10px;
+    @include card-header-title;
+  }
+
+  .card-content-md {
+    .note-text {
+      padding-top: 15px;
+    }
+  }
+
+  .sub-title {
+    color: $color-standard;    
+  }
+
+  ion-label {
+    white-space: normal;
+    color: $color-gray;
+    font-size: 15px;
+    z-index: 9999;
+  }
+
+  ion-input {
+    --padding-end: 45px;
+  }
+
+  ion-card {
+    padding: 10px;
+  }
+}

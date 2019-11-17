@@ -1,0 +1,21 @@
+<div *ngIf="parentForm" class="mb-4 dropdown-container" [formGroup]="parentForm">
+  <p-dropdown 
+    [formControlName]="controlName" 
+    [tabindex]="tabIndex" 
+    [options]="items" 
+    [placeholder]="placeholder" 
+    [style]="{'width':'100%'}" 
+    filter="true"
+  >
+    <ng-template let-item pTemplate="selectedItem">
+      <span>{{item.label}}</span>
+    </ng-template>
+    <ng-template let-country pTemplate="item">
+      <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+        <div>{{country.label}}</div>
+      </div>
+    </ng-template>
+
+  </p-dropdown>
+  <label>{{label}}</label>
+</div>

@@ -1,0 +1,26 @@
+@mixin modal {
+  .modal-content {
+    border: none;
+
+    .modal-body {
+      padding: 0;
+    }
+
+    .btn-create-card {
+      @include btn-gradient-blue;
+
+      padding: 10px 0;
+    }
+
+    .modal-header {
+      background-color: $bg-primary;
+
+      color: $color-white;
+
+      button.close span {
+        color: $color-white;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,84 @@
+<app-nav-header></app-nav-header>
+<ion-content>
+  <form novalidate [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <ion-grid fixed>
+      <ion-row align-items-stretch>
+        <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <div class="title">Profile Details</div>
+            </ion-card-header>
+            <ion-card-content>
+              <app-image-upload 
+                (onChange)="handleImageChange($event)" 
+                [imageDisplayUrl]="imageDisplayUrl" 
+                [parentForm]="profileForm" 
+              ></app-image-upload>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12>
+                    <ion-item formGroupName="name"> 
+                      <ion-label position="floating" color="primary">Firstname</ion-label>
+                      <ion-input name="firstname" formControlName="first" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                    </ion-item>
+
+                    <ion-item formGroupName="name"> 
+                      <ion-label position="floating" color="primary">Lastname</ion-label>
+                      <ion-input name="lastname" formControlName="last" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                    </ion-item>
+                      
+                    <ion-item>
+                      <ion-label position="floating" color="primary">Email Address</ion-label>
+                      <ion-input #email name="text" formControlName="email" type="email" required></ion-input>
+                    </ion-item>
+                      
+                    <ion-item>
+                      <ion-label position="floating" color="primary">Birthdate</ion-label>
+                      <ion-datetime *ngIf="profileForm.get('birthDate').value" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" formControlName="birthDate"></ion-datetime>
+                    </ion-item>
+
+                    <div formGroupName="location">
+                      <ion-item> 
+                        <ion-label position="floating" color="primary">Street</ion-label>
+                        <ion-input name="street" formControlName="street" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                      </ion-item>
+
+                      <ion-item> 
+                        <ion-label position="floating" color="primary">City</ion-label>
+                        <ion-input name="city" formControlName="city" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                      </ion-item>
+          
+                      <ion-item > 
+                        <ion-label position="floating" color="primary">Country</ion-label>
+                        <ion-input name="country" formControlName="country" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                      </ion-item>
+
+                      <ion-item> 
+                        <ion-label position="floating" color="primary">State</ion-label>
+                        <ion-input name="state" formControlName="state" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                      </ion-item>
+          
+                      <ion-item> 
+                        <ion-label position="floating" color="primary">Postal Code</ion-label>
+                        <ion-input name="postalCode" formControlName="postalCode" type="text" spellcheck="false" autocapitalize="off" required></ion-input>
+                      </ion-item>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <ion-row>
+                <ion-col>
+                <ion-button type="submit" [disabled]="!profileForm.valid || isSubmitting" expand="block" class="lpa_button-native">
+                    <i *ngIf="isSubmitting" class="fas fa-spinner fa-pulse"></i> Save Changes</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -1,0 +1,5 @@
+<app-nav-header></app-nav-header>
+
+<ion-content>
+  <app-board-detail [board]="board" [aeMode]="aeMode" (closeEmitter)="onCloseEmitter($event)" (reloadEmitter)="onReloadAfterEdit($event)"></app-board-detail>
+</ion-content>

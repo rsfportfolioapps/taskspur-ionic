@@ -1,0 +1,65 @@
+<app-nav-header></app-nav-header>
+<ion-content>
+  <form novalidate [formGroup]="managePasswordForm" (ngSubmit)="onSubmit()">
+    <ion-grid fixed>
+      <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+      <ion-row align-items-stretch>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <div class="title">Manage your account</div>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-list>
+                  <div [ngStyle]="{'margin-bottom': '30px'}">
+                    <p class="sub-title">Change password</p>
+                  </div>
+                  <div class="floating-label group">
+                    <input class="ts_input-password" #currPwd formControlName="currentPassword" name="currentPassword" type="password" autocomplete="off"
+                            tabindex="2" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Current Password</label>
+                    <i (click)="showPassword(currPwd)" class="fas fa-eye icon-password-view"></i>
+                  </div>
+
+                  <div class="floating-label group">
+                    <input class="ts_input-password" #pwd formControlName="password" name="password" type="password" autocomplete="off"
+                        tabindex="2" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>New Password</label>
+                    <i (click)="showPassword(pwd)" class="fas fa-eye icon-password-view"></i>
+                  </div>
+                  <div *ngIf="!managePasswordForm.get('password').valid && managePasswordForm.get('password').dirty && managePasswordForm.get('password').value != ''" class="error-hint">
+                    * Password must have at least one non letter or digit character and minimum of 8 characters.
+                  </div>
+            
+                  <div class="floating-label group mb-0">
+                    <input class="ts_input-password" valCompare="password" #rpwd formControlName="repeatPassword" name="repeatPassword" type="password" autocomplete="off"
+                        tabindex="2" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label [ngClass]="{'control-invalid': !managePasswordForm.get('repeatPassword').valid && managePasswordForm.get('repeatPassword').dirty }">Repeat New Password</label>
+                    <i (click)="showPassword(pwd)" class="fas fa-eye icon-password-view"></i>
+                  </div>
+
+                  <div [ngStyle]="{'margin-top': '10px'}">
+                    <p class="note-text">* At least 8 alphanumeric characters</p>
+                  </div>
+                </ion-list>
+              </ion-grid>
+              <ion-row>
+                <ion-col>
+                <ion-button type="submit" [disabled]="!managePasswordForm.valid || isSubmitting" expand="block" class="lpa_button-native">
+                    <i *ngIf="isSubmitting" class="fas fa-spinner fa-pulse"></i> Save Changes</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

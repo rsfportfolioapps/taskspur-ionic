@@ -1,0 +1,43 @@
+<app-nav-header></app-nav-header>
+
+<ion-content>
+  <div class="mt-0 board-header">
+    <div class="row mt-0">
+      <div class="bc-container col-9 p-0 pl-1">
+        <h3>Boards</h3>
+        <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+      </div>
+
+      <div class="col-3 sc-container">
+        <img src="/assets/icons/active-grid-view.png">
+        <img src="/assets/icons/active-list-view.png">
+      </div>
+    </div>
+
+    <div class="row action-container mb-0 mt-0">
+      <div class="col-2 p-0">
+        <button type="button" (click)="onDisplayNewBoard()" class="btn btn-create-mobile float-left"><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="col-10 p-0">
+        <app-dropdown-multiselect-filter 
+          *ngIf="filterBoards" 
+          class="dropdown-multiselect-filter" 
+          [items]="filterBoards"
+          [selectedItemsLabel]="selectedItemsLabel" 
+          [filterPlaceHolder]="filterPlaceHolder" 
+          [defaultLabel]="defaultLabel"
+          (selectedItemEmitted)="onFilterByBoards($event)"
+        >
+        </app-dropdown-multiselect-filter>
+      </div>
+    </div>
+  </div>
+
+  <div class="board-content mb-2">
+    <div *ngFor="let board of (filtered.length > 0 ? filtered : boards)" class="col-sm-12 col-md-12 col-lg-3">
+      <app-board [board]="board" [aeMode]="aeModeNew" (reloadEmitter)="load($event)" ></app-board>
+    </div>
+  </div>
+</ion-content>
+
+<p-confirmDialog appendTo="body" key="bc" header="Confirmation"></p-confirmDialog>

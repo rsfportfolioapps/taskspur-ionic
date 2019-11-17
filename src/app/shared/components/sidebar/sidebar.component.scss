@@ -1,0 +1,52 @@
+@import '../../../../styleguide/shared';
+
+.sidebar {
+  i {
+    top: 30px;
+    width: 30px;
+  }
+}
+
+ion-item {
+  color: $color-white;
+  font-size: 15px;
+  --padding-start: 30px;
+  --ion-font-family: $font-family-base;
+  --border-width: 0 !important;
+  --background: $color-primary;
+  --inner-padding-top: 17px;
+  --inner-padding-bottom: 17px;
+}
+
+ion-list {
+  padding: 0;
+  background-color: $bg-primary;
+}
+
+.header-item {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  --padding-start: 0px;
+  --inner-padding-start: 30px;
+  --inner-padding-top: 25px;
+  --inner-padding-bottom: 25px;
+  --ion-item-border-color: #55b1f1;
+}
+
+.first-item {
+  --inner-padding-top: 30px;
+}
+
+.active {
+  border-left: 5px solid #0076C4;
+  font-weight: 700;
+  --padding-start: 25px;
+}
+
+.fa-times {
+  position: fixed;
+  right: 10px;
+  top: 25px;
+  font-size: 22px;
+}

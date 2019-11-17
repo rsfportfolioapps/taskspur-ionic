@@ -1,0 +1,79 @@
+@import '../../../../../styleguide/shared';
+
+.board-detail-container {
+  .bds {
+    &:first-child {
+      margin-top: 10px;
+    }
+
+    margin: 25px 0;
+  }
+
+  .btn-container {
+    border-top: thin $border-line-color solid;
+    padding-top: 7px;
+  }
+
+  .btn-cancel {
+    @include btn-default;
+
+    max-width: 150px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .btn-create {
+    @include btn-gradient-blue;
+
+    max-width: 180px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+
+  .bdm-container {
+    .bdm-row {
+      background: #F5F5F5;
+      height: 60px;
+      padding: 5px;
+      border: thin $color-white solid;
+      border-radius: 2px;
+
+      .bdm-img {
+        height: 46px;
+        width: 46px;
+        max-width: 46px;
+        background: $color-gray;
+        border-radius: 50%;
+        padding: 0;
+
+        img {
+          height: 46px;
+          width: 46px;
+          border-radius: 50%;
+        }
+      }
+
+      .bdm-name {
+        padding: 15px 0 15px 10px;
+      }
+
+      .bdm-action-icon {
+        padding: 15px 0;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep .ui-inputswitch.ui-inputswitch-checked {
+  @include input-switch-red;
+}

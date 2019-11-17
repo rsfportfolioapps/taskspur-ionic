@@ -1,0 +1,15 @@
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="8">
+      <ion-col *ngFor="let breadcrumb of breadcrumbs; let last = last" col-2>
+        <a *ngIf="breadcrumb.path && !last" (click)="goToBreadcrumb(breadcrumb.path)" class="active-link">{{breadcrumb.text}}</a>
+        <i *ngIf="!breadcrumb.path || last" class="fas fa-angle-right"></i>
+        <span *ngIf="!breadcrumb.path || last" class="current-link">{{ breadcrumb.text}}</span>
+      </ion-col>
+    </ion-col>
+    <!-- <ion-col size="4" class="date-time" >
+      <span >{{ currDateTime }}</span>
+    </ion-col> -->
+  </ion-row>
+</ion-grid>

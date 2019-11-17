@@ -1,0 +1,160 @@
+@import '../../../../../styleguide/shared';
+
+.card-container {
+  @include main-container;
+  padding: 5px 10px 10px 10px;
+
+  .card {
+    border: 1px solid $color-gray-clear;
+  }
+
+  .btn-action-container {
+    .col-4 {
+      text-align: right;
+    }
+  }
+
+  h4 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btn-create {
+    @include btn-gradient-blue;
+    width: 100%;
+    max-width: 180px;
+    text-shadow: $text-shadow;
+
+    .create-text {
+      display: block;
+      color: $color-white;
+    }
+  }
+
+  .dropdown-multiselect-filter {
+    display: block;
+  }
+
+  .btn-search {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: thin $color-lighter-gray solid;
+    color: $color-lighter-gray;
+  }
+
+  .card-header {
+    width: 100.5%;
+    position: relative;
+    left: -1px;
+
+    span {
+      color: $color-white;
+      width: 100.8%;
+      left: -1px;
+      text-shadow: $text-shadow;
+      position: relative;
+      top: 3px;
+    }
+
+    .card-count {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: $color-white;
+      padding: 6px 8px;
+      font-size: 12px;
+      color: $color-primary;
+      position: relative;
+      top: 1px;
+      text-align: center;
+      text-shadow: none;
+    }
+  }
+
+  .sort-container {
+    margin-right: 10px;
+    font-size: 24px;
+
+    img {
+      margin-top: 20px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
+
+      &:nth-child(2) {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .card-content {
+    margin-top: 10px;
+    border-top: thin $color-lighter-gray solid;
+    padding: 10px;
+
+    .btn-create {
+      @include btn-gradient-blue;
+
+      height: 40px;
+      width: 40px;
+    }
+
+    .btn-filter {
+      @include btn-transparent;
+
+      border: thin $color-lighter-gray solid;
+      height: 40px;
+      width: 40px;
+    }
+
+    .ch-1 {
+      background: #197AF2;
+    }
+
+    .ch-2 {
+      background: #0099FF;
+    }
+
+    .ch-3 {
+      background: #00C2FF;
+    }
+
+    .ch-4 {
+      background: #0DDAFC;
+    }
+
+    .card-body {
+      background: #F4F8FD;
+      padding: 0;
+
+    }
+
+    .cc-mobile-container {
+      .row {
+        min-width: 320px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .card-container {
+    .btn-action-container {
+      .col-4 {
+        text-align: left;
+      }
+    }
+
+    .sort-container {
+      margin-right: 0;
+    }
+
+    .card-accordion {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+}

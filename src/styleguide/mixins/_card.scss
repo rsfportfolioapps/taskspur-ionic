@@ -1,0 +1,35 @@
+@mixin card($size: normal) {
+  background-color: $bg-white;
+  box-shadow: $box-shadow;
+
+  padding: 20px;
+  border-radius: 4px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+
+
+@mixin form-card {
+  @include card;
+
+  width: 370px;
+
+  .form-card-header {
+    padding: 10px;
+  }
+
+  .form-card-content {
+    padding-top: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    color: $color-standard;
+  }
+
+  .btn-blue {
+    @include btn-blue;
+  }
+}

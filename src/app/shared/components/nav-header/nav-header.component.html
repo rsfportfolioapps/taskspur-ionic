@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="blue" class="toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> 
+      <ion-label>TaskSpur</ion-label>
+    </ion-buttons>
+
+    <div class="nav-profile">
+      <i (click)="notificationPopover()" class="far fa-bell nav-profile-itm"><span class="notication-badge">3</span></i>
+      <img  class="profile-img" *ngIf="profileInfo && profileInfo.profilePhoto.url" [src]="profileInfo.profilePhoto.url" />
+      <i (click)="presentPopover($event)" class="fas fa-ellipsis-v" ></i>
+    </div>
+  </ion-toolbar>
+</ion-header>
